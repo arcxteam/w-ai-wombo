@@ -1,3 +1,11 @@
+#!/usr/bin/env bash
+
+# -------------------------------------------------
+# Name: node‑bootstrap.sh
+# Description: Bootstrap install Node.js, npm, Yarn, and PM2
+# Platform: Linux (Ubuntu/Debian)
+# -------------------------------------------------
+
 # Install NVM
 echo "Installing NVM (Node Version Manager)..."
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
