@@ -1,20 +1,26 @@
-# Guides for Running W.ai – Wombo Studios: AI Training and Inference Using the CLI
+# Guides Running W.ai (Wombo AI) for Training and Inference Using the CLI
 
-**W.ai as Wombo Studios is building the Global AI Supercomputer – a worldwide network that uses the spare power from everyday devices to create a massive, shared resource for Artificial Intelligence. Backed by Nvidia**
+![6255724677167171025](https://github.com/user-attachments/assets/a3abc643-106d-4557-8131-053c367ed88f)
+
+**W.ai as Wombo Studios is building the Global AI Supercomputer – a worldwide network that uses the spare power from everyday devices to create a massive, shared resource for Artificial Intelligence backed by NVIDIA**
 
 ## What You Can Gain
 
 - **Earn W Points** for every task completed by your run.
 - Points may potentially be converted into tokens in the future.
 - The more miner-node you run, the greater your earnings.
+- Read there [FAQs](https://docs.w.ai/faq) and join W.ai [Discord](https://discord.com/invite/w-ai)
 
 ## Initial Requirements
 
-- **Mac**: Chip series (M1, M2, M3, M4).
-- **Windows/Linux**: NVIDIA GPU (GTX or RTX).
-- **RAM**: Minimum 4GB - 8GB (or more recommended).
-- **Storage**: 50-99GB or more of free space.
-- **SERVER GPU RENTAL**
+| Requirement     | Minimum                |
+| :----------     | :--------------------  |
+| **Linux**       | Ubuntu 20 - 22 - 24 LTS          |
+| **Mac**         | Chip M1, M2, M3, M4              |
+| **CPU**         | Cores 8 - more vCPU              |
+| **RAM Cpu**     | Min 8GB - more RAM               |
+| **GPU-ID**      | GTX 1080 - RTX w/ series A4xx,A6xx,20xx,30xx,40xx,50xx |       
+| **STORAGE**     | Up 50GB - more space             |
 
 ## Quick Registration
 
@@ -31,10 +37,10 @@
 - Top-up balance in USDC/USDT on the BSC network. Register at: [https://cube.octa.computer/users/sign_up](https://octa.space/?ref=rTXHXwn7D96).
 - After register and successfully top up, visit [https://marketplace.octa.space/](https://marketplace.octa.space/)
 - Select menu **compute rental** in the choose **Ubuntu 22.04 LTS** template. e.g., rental machine RTX 20xx - 30xx - 40xx - 50xx or other options.
-- Besides running W.AI, you can also run other nodes, such as **e.g., nexus.xyz, Gensyn and more**, to maximize resource utilization.
+- Beside running W.AI, you can also run other nodes, such as **nexus.xyz, Gensyn and more**, to maximize GPU resource utilization.
 
 ## Optimal your resources - <mark>if you running by rent</mark>
-- Guides run [Genysn AI](https://github.com/arcxteam/rl-swarm) **this modify me, support all model GPU with low RAM and boost huge rewards Gensyn**
+- Guides run [Gensyn AI](https://github.com/arcxteam/rl-swarm) **this my modify config, support all model GPU with low RAM and boost huge rewards Gensyn**
 - Guides run [Nexus.xyz](https://github.com/arcxteam/nexus-node) with CLI mode
 - Setup more if have spaces memory VRAM
 
@@ -52,7 +58,7 @@ speedtest-cli ca-certificates libffi-dev libsqlite3-dev -y
 ### Install Node.js, NPM, Yarn and PM2
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/arcxteam/w.ai-wombo/refs/heads/main/node%E2%80%91bootstrap.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/arcxteam/w.ai-wombo/refs/heads/main/node-setup.sh)"
 ```
 
 ### Install W.AI CLI
