@@ -58,7 +58,7 @@ speedtest-cli ca-certificates libffi-dev libsqlite3-dev -y
 ### Install Node.js, NPM, Yarn and PM2
 
 ```bash
-source <(curl -s https://raw.githubusercontent.com/arcxteam/w.ai-wombo/refs/heads/main/node-setup.sh)
+source <(curl -s https://github.com/arcxteam/w.ai-wombo/raw/refs/heads/main/node%E2%80%91setup.sh)
 ```
 
 ### Install W.AI CLI
