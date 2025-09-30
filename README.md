@@ -85,6 +85,8 @@ wai run
 
 > Done! Check the dashboard periodically... your **W-Points** should now start accumulating!
 
+![photo_6257976476980858226_y](https://github.com/user-attachments/assets/af440b1f-4285-469d-9c86-15694bfe7696)
+
 ## Advanced Config (Multiple Nodes)
 
 ### Copy and paste directly into the terminal (replace `wai-api-key`)
