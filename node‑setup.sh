@@ -1,16 +1,25 @@
 #!/usr/bin/env bash
 
 # -------------------------------------------------
-# Name: node‑bootstrap.sh
+# Name: node‑setup.sh
 # Description: Bootstrap install Node.js, npm, Yarn, and PM2
 # Platform: Linux (Ubuntu/Debian)
 # -------------------------------------------------
 
+# Check curl
+if ! command -v curl &> /dev/null; then
+    echo "Installing curl..."
+    apt install -y curl
+fi
+
 # Install NVM
 echo "Installing NVM (Node Version Manager)..."
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
-source ~/.bashrc
+# load environment NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Install Node.js
 echo "Installing Node.js v22.18.0 (LTS)..."
@@ -36,13 +45,16 @@ npm install -g yarn
 echo "Verifying Yarn installation..."
 yarn -v
 
-echo "Adding NVM and Node.js to .bash_profile..."
+# add to .bashrc
+echo "Adding NVM to .bashrc..."
+cat <<EOF >> ~/.bashrc
+export NVM_DIR="$HOME/.nvm"
+[ -s "\$NVM_DIR/nvm.sh" ] && \. "\$NVM_DIR/nvm.sh"
+[ -s "\$NVM_DIR/bash_completion" ] && \. "\$NVM_DIR/bash_completion"
+EOF
 
-echo "export NVM_DIR=\"$HOME/.nvm\"" >> ~/.bash_profile
-echo "[ -s \"$NVM_DIR/nvm.sh\" ] && \. \"$NVM_DIR/nvm.sh\"" >> ~/.bash_profile
-echo "[ -s \"$NVM_DIR/bash_completion\" ] && \. \"$NVM_DIR/bash_completion\"" >> ~/.bash_profile
-
-source ~/.bash_profile
+# reload .bashrc
+source ~/.bashrc
 
 echo "Setting proper permissions for NVM and Node.js installation..."
 chown -R $USER:$USER ~/.nvm
