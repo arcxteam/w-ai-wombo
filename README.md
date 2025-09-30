@@ -58,7 +58,7 @@ speedtest-cli ca-certificates libffi-dev libsqlite3-dev -y
 ### Install Node.js, NPM, Yarn and PM2
 
 ```bash
-source <(curl -s https://github.com/arcxteam/w.ai-wombo/raw/refs/heads/main/node%E2%80%91setup.sh)
+bash -c "$(wget -O- https://raw.githubusercontent.com/arcxteam/w-ai-wombo/main/nodejs.sh)"
 ```
 
 ### Install W.AI CLI
@@ -84,6 +84,7 @@ wai run
 ```
 
 > Done! Check the dashboard periodically... your **W-Points** should now start accumulating!
+
 
 ![photo_6257976476980858226_y](https://github.com/user-attachments/assets/af440b1f-4285-469d-9c86-15694bfe7696)
 
