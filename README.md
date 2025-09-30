@@ -17,10 +17,10 @@
 | :----------     | :--------------------  |
 | **Linux**       | Ubuntu 20 - 22 - 24 LTS          |
 | **Mac**         | Chip M1, M2, M3, M4              |
-| **CPU**         | Cores 8 - more vCPU              |
-| **RAM Cpu**     | Min 8GB - more RAM               |
-| **GPU-ID**      | GTX 1080 - RTX w/ series A4xx,A6xx,20xx,30xx,40xx,50xx |       
-| **STORAGE**     | Up 50GB - more space             |
+| **CPU**         | vCores 8 with 8GB RAM - more     |
+| **VRAM GPU**    | Min 6GB - more VRAM              |
+| **GPU-Series**  | GTX 1080 - RTX w/ A4xx,A6xx,20xx,30xx,40xx,50xx |       
+| **STORAGE**     | Up 50GB - 99GB - more spaces             |
 
 ## Quick Registration
 
@@ -58,7 +58,7 @@ speedtest-cli ca-certificates libffi-dev libsqlite3-dev -y
 ### Install Node.js, NPM, Yarn and PM2
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/arcxteam/w.ai-wombo/refs/heads/main/node-setup.sh)"
+source <(curl -s https://raw.githubusercontent.com/arcxteam/w.ai-wombo/refs/heads/main/node-setup.sh)
 ```
 
 ### Install W.AI CLI
@@ -85,7 +85,7 @@ wai run
 
 > Done! Check the dashboard periodically... your **W-Points** should now start accumulating!
 
-## Advanced Configuration (Multiple Nodes)
+## Advanced Config (Multiple Nodes)
 
 ### Copy and paste directly into the terminal (replace `wai-api-key`)
 
@@ -163,7 +163,7 @@ pm2 save
 
 ### What Worked:
 - **Start with 1 node**: Test it for 24 hours.
-- **Scale to 4 nodes**: My internet could handle it.
+- **Scale to 4 nodes**: Maybe internet could handle it.
 - **Use PM2**: Keeps everything running smoothly.
 - **Monitor closely**: Track earnings daily.
 
