@@ -1,51 +1,59 @@
 #!/usr/bin/env bash
+
 # -------------------------------------------------
-# Name: nodejs.sh
+# Name: setupnodejs.sh
 # Description: Bootstrap install Node.js, npm, Yarn, and PM2
-# Platform: Linux (Ubuntu/Debian, non-root user)
+# Platform: Linux (Ubuntu/Debian)
 # -------------------------------------------------
-set -e
+
 # Install NVM
 echo "Installing NVM (Node Version Manager)..."
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-# Load NVM explicitly
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+# load environment NVM
 export NVM_DIR="$HOME/.nvm"
-if [ -s "$NVM_DIR/nvm.sh" ]; then
-    \. "$NVM_DIR/nvm.sh"
-else
-    echo "Error: NVM not installed correctly"
-    exit 1
-fi
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
 # Install Node.js
-echo "Installing Node.js v22.18.0..."
+echo "Installing Node.js v22.18.0 (LTS)..."
 nvm install 22.18.0
 nvm use 22.18.0
 nvm alias default 22.18.0
+
 echo "Verifying Node.js and npm installation..."
 node -v
 npm -v
+
 # Install PM2
 echo "Installing PM2..."
 npm install -g pm2
+
 echo "Verifying PM2 installation..."
 pm2 -v
+
 # Install Yarn
 echo "Installing Yarn..."
 npm install -g yarn
+
 echo "Verifying Yarn installation..."
 yarn -v
-# Add to .bashrc
+
+# add to .bashrc
 echo "Adding NVM to .bashrc..."
 cat <<EOF >> ~/.bashrc
 export NVM_DIR="$HOME/.nvm"
 [ -s "\$NVM_DIR/nvm.sh" ] && \. "\$NVM_DIR/nvm.sh"
 [ -s "\$NVM_DIR/bash_completion" ] && \. "\$NVM_DIR/bash_completion"
 EOF
-# Note: source ~/.bashrc avoided to prevent subshell issues
+
+# reload .bashrc
+source ~/.bashrc
+
 echo "Setting proper permissions for NVM and Node.js installation..."
-chown -R $(whoami):$(whoami) ~/.nvm
+chown -R $USER:$USER ~/.nvm
 chmod -R 755 ~/.nvm
+
 # Ready version help
 echo "Installation completed successfully."
 echo "Node.js version: $(node -v)"
