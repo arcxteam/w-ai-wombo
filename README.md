@@ -1,4 +1,4 @@
-# Guides Running W.ai (Wombo AI) for Training and Inference Using the CLI
+# Guides Running W.ai (Wombo AI) for Training and Inference Using CLI
 
 ![6255724677167171025](https://github.com/user-attachments/assets/a3abc643-106d-4557-8131-053c367ed88f)
 
@@ -22,24 +22,26 @@
 | **GPU-Series**  | GTX 1080 - RTX w/ A4xx,A6xx,20xx,30xx,40xx,50xx |       
 | **STORAGE**     | Up 50GB - 99GB - more spaces             |
 
-## Quick Registration
+## Dashboard Registration
 
 ### Register and Obtain an API Key
-- Visit the dashboard and sign up using an email: [https://app.w.ai/auth/signup](https://w.ai/r/1WLMEQDB).
+- Visit the dashboard & sign up using an email: [https://app.w.ai/auth/signup](https://w.ai/r/1WLMEQDB).
 - Navigate to the `API-KEYS` section.
-- Create a new key `wsk-xxx` **SAVE AS**
-- Copy the key; you can create multiple keys, but ensure you save them securely.
+- Create a new key `wsk-xxx` **SAVE SAVE SAVE**
+- Copy the key you can create multiple keys, **if forget save generate again**
 
 <img width="1624" height="486" alt="image" src="https://github.com/user-attachments/assets/bfab7771-4ff5-4540-96c9-c015e04d5c9e" />
 
-## GPU Rental or Local Setup
-- In my opinion, Octaspace offers cheaper rental real costs compared to other providers.
-- Top-up balance in USDC/USDT on the BSC network. Register at: [https://cube.octa.computer/users/sign_up](https://octa.space/?ref=rTXHXwn7D96).
+## GPU Rental with Tips
+- In my opinion, Octaspace offers cheaper rent low costs compared to other familiar providers like Vast.ai/Quickpod/Tensor/more
+- Top-up balance in USDC/USDT/OCTA/BNB on the BSC network. Register at: [https://cube.octa.computer/users/sign_up](https://octa.space/?ref=rTXHXwn7D96).
 - After register and successfully top up, visit [https://marketplace.octa.space/](https://marketplace.octa.space/)
-- Select menu **compute rental** in the choose **Ubuntu 22.04 LTS** template. e.g., rental machine RTX 20xx - 30xx - 40xx - 50xx or other options.
-- Beside running W.AI, you can also run other nodes, such as **nexus.xyz, Gensyn and more**, to maximize GPU resource utilization.
+- Select menu **compute rental** Always choose template **Ubuntu 22.04 LTS** with **Storage 98-99GB** and choose any RTX 20xx - 30xx - 40xx - 50xx or other options.
+- Beside running W.AI you can also run other nodes, like **nexus.xyz, Gensyn and more**, to maximize GPU resources utilization.
 
-## Optimal your resources - <mark>if you running by rent</mark>
+> Note: For other tips & maximals your rental GPU machines with OCTASPACE, README.md my guides at https://github.com/arcxteam/oc
+
+## Optimal your resources - <mark>if you running by Octaspace rent</mark>
 - Guides run [Gensyn AI](https://github.com/arcxteam/rl-swarm) **this my modify config, support all model GPU with low RAM and boost huge rewards Gensyn**
 - Guides run [Nexus.xyz](https://github.com/arcxteam/nexus-node) with CLI mode
 - Setup more if have spaces memory VRAM
@@ -58,10 +60,10 @@ speedtest-cli ca-certificates libffi-dev libsqlite3-dev -y
 ### Install Node.js, NPM, Yarn and PM2
 
 ```bash
-bash -c "$(wget -O- https://raw.githubusercontent.com/arcxteam/w-ai-wombo/main/nodejs.sh)"
+source <(wget -qO- https://raw.githubusercontent.com/arcxteam/w-ai-wombo/main/nodejs.sh)
 ```
 
-### Install W.AI CLI
+### Install W.ai CLI
 
 ```bash
 # Install CLI
@@ -73,11 +75,11 @@ wai --version
 
 - <mark>If the version is displayed, proceed to the steps below.</mark>
 
-### Start Running
+### Start Running Inferences
 
 ```bash
-# Replace api-key
-export W_AI_API_KEY=your_api_key
+# Replace XXX your-api-key
+export W_AI_API_KEY=XXXXXX
 
 # Run
 wai run
@@ -88,9 +90,11 @@ wai run
 
 ![photo_6257976476980858226_y](https://github.com/user-attachments/assets/af440b1f-4285-469d-9c86-15694bfe7696)
 
-## Advanced Config (Multiple Nodes)
+---
 
-### Copy and paste directly into the terminal (replace `wai-api-key`)
+## Advanced Config (Multiple Run LLModels)
+
+### Copy/Paste this directly in the terminal (replace `XXXXXX` your api key)
 
 ```bash
 # Create configuration file
@@ -106,7 +110,7 @@ module.exports = {
     max_memory_restart: '1G', // default 1GB RAM
     env: {
       NODE_ENV: 'production',
-      W_AI_API_KEY: 'wai-api-key'
+      W_AI_API_KEY: 'XXXXXXXX'
     }
   }]
 };
@@ -154,7 +158,7 @@ speedtest-cli
 nload
 ```
 
-### Automatic Restart on Failure
+### Auto Restart on Failure
 
 ```bash
 # PM2 ensures your nodes keep running
