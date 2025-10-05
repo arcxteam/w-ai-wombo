@@ -1,4 +1,4 @@
-# Guides Running W.ai (Wombo AI) for Training and Inference Using CLI
+# Guides Running W.Ai (Wombo AI) for Training and Inference Using CLI & DOCKER
 
 ![6255724677167171025](https://github.com/user-attachments/assets/a3abc643-106d-4557-8131-053c367ed88f)
 
@@ -39,12 +39,12 @@
 - Select menu **compute rental** Always choose template **Ubuntu 22.04 LTS** with **Storage 98-99GB** and choose any RTX 20xx - 30xx - 40xx - 50xx or other options.
 - Beside running W.AI you can also run other nodes, like **nexus.xyz, Gensyn and more**, to maximize GPU resources utilization.
 
-> Note: For other tips & maximals your rental GPU machines with OCTASPACE, README.md my guides at https://github.com/arcxteam/oc
+> Note: For other trick & tips maximals any rent cloud GPU machines with OCTASPACE, follow my guides https://github.com/arcxteam/octa-rental-gpu
 
-## Optimal your resources - <mark>if you running by Octaspace rent</mark>
-- Guides run [Gensyn AI](https://github.com/arcxteam/rl-swarm) **this my modify config, support all model GPU with low RAM and boost huge rewards Gensyn**
-- Guides run [Nexus.xyz](https://github.com/arcxteam/nexus-node) with CLI mode
-- Setup more if have spaces memory VRAM
+## Optimal your resources - <mark>if you running by OctaSpace</mark>
+- Guides run [Gensyn AI](https://github.com/arcxteam/rl-swarm) **modify config, support all model series GPU with low vRAM and boost rewards Gensyn**
+- Guides run [Nexus.xyz](https://github.com/arcxteam/nexus-node) with CLI or Docker
+- Setup more ran if have spaces memory VRAM
 
 ## Installation Setup
 
@@ -63,7 +63,7 @@ speedtest-cli ca-certificates libffi-dev libsqlite3-dev -y
 source <(wget -qO- https://raw.githubusercontent.com/arcxteam/w-ai-wombo/main/nodejs.sh)
 ```
 
-### Install W.ai CLI
+### 1. Install W.AI on CLI
 
 ```bash
 # Install CLI
@@ -75,7 +75,7 @@ wai --version
 
 - <mark>If the version is displayed, proceed to the steps below.</mark>
 
-### Start Running Inferences
+### Start Run Inferences - CLI
 
 ```bash
 # Replace XXX your-api-key
@@ -85,8 +85,25 @@ export W_AI_API_KEY=XXXXXX
 wai run
 ```
 
-> Done! Check the dashboard periodically... your **W-Points** should now start accumulating!
+> Done! Check the WAI dashboard periodically... your **W-Points** should now start accumulating!
 
+### 2. Install W.AI on DOCKER
+
+### Install Docker & Compose → <mark>if not yet</mark>
+
+```bash
+curl -sSL https://raw.githubusercontent.com/arcxteam/succinct-prover/refs/heads/main/docker.sh | sudo bash
+```
+
+### Start Run Inferences - Docker
+
+```bash
+# Replace XXX your-api-key
+docker run --gpus all \
+           -v ~/.wombo:/root/.wombo \
+           -e W_AI_API_KEY=XXX \
+           wdotai/wai:latest run
+```
 
 ![photo_6257976476980858226_y](https://github.com/user-attachments/assets/af440b1f-4285-469d-9c86-15694bfe7696)
 
@@ -94,11 +111,11 @@ wai run
 
 ## Advanced Config (Multiple Run LLModels)
 
-### Copy/Paste this directly in the terminal (replace `XXXXXX` your api key)
+### Copy/Paste in the terminal (replace `XXXXXX` with your-api-key)
 
 ```bash
 # Create configuration file
-cat > wai.run.js << 'CONFIG'
+cat > wai-run.js << 'CONFIG'
 module.exports = {
   apps: [{
     name: 'wai-miner',
@@ -117,7 +134,7 @@ module.exports = {
 CONFIG
 
 # Run multiple nodes
-pm2 start wai.run.js
+pm2 start wai-run.js --name wai-miner
 
 # Save PM2 configuration
 pm2 startup
@@ -126,27 +143,18 @@ pm2 save
 
 ### Useful Commands
 
-```bash
+```diff
 # Check running status
-pm2 list
-```
-
-```bash
+- pm2 list
 # View logs
-pm2 logs wai-miner
-```
-
-```bash
-# Monitor GPU
-nvidia-smi
-```
-
-```bash
+- pm2 logs wai-miner
+# Stop or delete
+- pm2 stop wai-miner / pm2 delete wai-miner
 # Monitor GPU in real-time
-watch -n 1 nvidia-smi
+- watch -n 1 nvidia-smi
 ```
 
-### Internet Optimization Tips
+### Internet Optimization
 
 ```bash
 # Test connection (ping, etc.)
@@ -156,14 +164,6 @@ speedtest-cli
 ```bash
 # Monitor bandwidth
 nload
-```
-
-### Auto Restart on Failure
-
-```bash
-# PM2 ensures your nodes keep running
-pm2 startup
-pm2 save
 ```
 
 ## Tips
