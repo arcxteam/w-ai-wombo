@@ -1,4 +1,4 @@
-# Guides Running W.Ai (Wombo AI) for Training and Inference Using CLI & DOCKER
+# Guides Running W.Ai (Wombo AI) Training for Inference Using CLI & DOCKER
 
 ![6255724677167171025](https://github.com/user-attachments/assets/a3abc643-106d-4557-8131-053c367ed88f)
 
@@ -52,8 +52,9 @@
 
 ```bash
 apt update && apt upgrade -y && \
-apt install screen curl nload tree iptables git wget lz4 jq make gcc nano automake autoconf htop tmux libgbm1 protobuf-compiler python3 python3-pip python3-venv python3-dev python3-setuptools \
-tar clang ncdu unzip build-essential pkg-config libssl-dev libleveldb-dev \
+apt install screen curl nload tree iptables git wget lz4 jq make gcc nano automake autoconf htop tmux \
+libgbm1 protobuf-compiler python3 python3-pip python3-venv python3-dev python3-setuptools \
+tar nethogs clang ncdu unzip build-essential pkg-config libssl-dev libleveldb-dev \
 speedtest-cli ca-certificates libffi-dev libsqlite3-dev -y
 ```
 
